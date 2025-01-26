@@ -7,23 +7,15 @@ using Microsoft.Extensions.Options;
 
 namespace Mews.ExchangeRateUpdater.App
 {
-    public class Worker : IHostedService
+    public class Worker(IExchangeRateProvider provider,
+        IHostApplicationLifetime hostApplicationLifetime,
+        IOptions<ExchangeRateOptions> options,
+        ILogger<Worker> logger) : IHostedService
     {
-        private readonly IExchangeRateProvider _provider;
-        private readonly IHostApplicationLifetime _hostApplicationLifetime;
-        private readonly ILogger<Worker> _logger;
-        private readonly ExchangeRateOptions _options;
-
-        public Worker(IExchangeRateProvider provider, 
-            IHostApplicationLifetime hostApplicationLifetime, 
-            IOptions<ExchangeRateOptions> options,
-            ILogger<Worker> logger)
-        {
-            _provider = provider;
-            _hostApplicationLifetime = hostApplicationLifetime;
-            _logger = logger;
-            _options = options.Value;
-        }
+        private readonly IExchangeRateProvider _provider = provider;
+        private readonly IHostApplicationLifetime _hostApplicationLifetime = hostApplicationLifetime;
+        private readonly ILogger<Worker> _logger = logger;
+        private readonly ExchangeRateOptions _options = options.Value;
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {

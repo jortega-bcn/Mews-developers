@@ -12,6 +12,10 @@ namespace Mews.ExchangeRates.Domain.Configuration
     {
         [Required]
         [NotNull]
-        public string[] Currencies { get; set; } = new string[0];
+        public string[]? Currencies { get; set; }
+
+        [Required]
+        [NotNull]
+        public string? SourceUri { get; set; }
     }
 }
