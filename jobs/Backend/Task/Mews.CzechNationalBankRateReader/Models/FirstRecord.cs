@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mews.CzechNationalBankRateReader.Models
 {
-    public class FirstRecord
+    public record FirstRecord
     {
         public DateOnly Date { get; set; }
         public int YearlySequence { get; set; }

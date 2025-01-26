@@ -2,7 +2,7 @@
 
 namespace Mews.CzechNationalBankRateReader.Interfaces
 {
-    public interface IExchangeRatesContentParser
+    public interface IExchangeRateContentParser
     {
         IEnumerable<CentralBankExchangeRate> ParseContent(string content);
     }

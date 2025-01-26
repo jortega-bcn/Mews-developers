@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Serilog.Extensions.Hosting;
 using Serilog;
 using Serilog.Settings.Configuration;
+using Mews.CzechNationalBankRateReader;
 
 var builder = Host.CreateDefaultBuilder(args);
 
@@ -18,6 +19,7 @@ builder.ConfigureServices(
                 .Bind(context.Configuration.GetSection(nameof(ExchangeRateOptions)))
                 .ValidateDataAnnotations();
             services.AddExchangeRatesDomain();
+            services.AddRateReader();
         });
 
 builder.UseSerilog((ctx, config) => config.ReadFrom.Configuration(ctx.Configuration));

@@ -8,7 +8,7 @@ namespace Mews.CzechNationalBankRateReader.Models
 {
     public class CentralBankResponse
     {
-        public FirstRecord Metadata { get; set; }
-        public IEnumerable<CentralBankExchangeRate> ExchangeRates { get; set; }
+        public FirstRecord? Metadata { get; set; }
+        public IEnumerable<CentralBankExchangeRate>? ExchangeRates { get; set; }
     }
 }

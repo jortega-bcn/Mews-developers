@@ -27,7 +27,7 @@ namespace Mews.CNBRateReader.IntegrationTests
                                             new HttpClient(),
                                             new ResponseBodyParser(
                                                 new FirstLineParser(),
-                                                new ExchangeRatesContentParser()),
+                                                new ExchangeRateContentParser()),
                                             options,
                                             logger);
             //Act

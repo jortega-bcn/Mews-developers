@@ -10,7 +10,12 @@
 
         public override string ToString()
         {
-            return $"{SourceCurrency}/{TargetCurrency}={Value}";
+            return $"1 {SourceCurrency} = {Value} {TargetCurrency}";
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return ToString() == obj?.ToString();
         }
     }
 }

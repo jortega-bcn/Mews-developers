@@ -17,7 +17,7 @@ namespace Mews.CzechNationalBankRateReader
         ILogger<ExchangeRateReader> logger) 
         : IExchangeRateReader
     {
-        const string TargetCurrencyCode = "CZK";
+        public const string TargetCurrencyCode = "CZK";
 
         public async Task<IEnumerable<ExchangeRate>> GetExchangeRatesAsync()
         {
@@ -30,9 +30,11 @@ namespace Mews.CzechNationalBankRateReader
             var body = await response.Content.ReadAsStringAsync();            
             logger.LogDebug("read data: {body}", body);
             var rates = responseBodyParser.ParseBody(body);
-
+            if(rates.ExchangeRates is null)
+            {
+                throw new DataReadException($"No exchange rates could be parsed.");
+            }
             var targetCurrency = new Currency(TargetCurrencyCode);
-
             return rates.ExchangeRates.Select(er => new ExchangeRate(
                                                             new Currency(er.Code),
                                                             targetCurrency,

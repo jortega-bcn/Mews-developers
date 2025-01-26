@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mews.CzechNationalBankRateReader\Mews.CzechNationalBankRateReader.csproj" />
     <ProjectReference Include="..\Mews.ExchangeRates.Domain\Mews.ExchangeRates.Domain.csproj" />
   </ItemGroup>
 

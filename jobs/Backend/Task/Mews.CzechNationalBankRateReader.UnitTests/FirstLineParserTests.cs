@@ -46,8 +46,8 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
         #endregion
         public void ParseFirstLine_Throws_WhenFirstRecordInValid(string firstRecord, FirstLineParser systemUndeTest)
         {
-            var myTestAction = () => systemUndeTest.ParseFirstLine(firstRecord);
-            Assert.Throws<FormatException>(myTestAction);            
+            var parseFirstLineAction = () => systemUndeTest.ParseFirstLine(firstRecord);
+            Assert.Throws<FormatException>(parseFirstLineAction);            
         }
 
         

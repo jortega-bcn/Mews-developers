@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mews.ExchangeRates.Domain\Mews.ExchangeRates.Domain.csproj" />
     <ProjectReference Include="..\Mews.Reusable.UnitTests\Mews.Reusable.UnitTests.csproj" />
   </ItemGroup>
 

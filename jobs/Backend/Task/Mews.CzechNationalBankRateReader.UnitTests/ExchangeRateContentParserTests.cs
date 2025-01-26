@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Mews.CzechNationalBankRateReader.UnitTests
 {
-    public class ExchangeRatesContentParserTests
+    public class ExchangeRateContentParserTests
     {
         [Theory]
         [InlineAutoNSubstituteData("ExchangeRatesValidContent.txt", "CZK", 31)]
         public void ParseContent_returns_ok(string contentFileName,
             string expectedDestinationCurrencyCode,
             int expectedCount,
-            ExchangeRatesContentParser systemUnderTest)
+            ExchangeRateContentParser systemUnderTest)
         {
             var content = EmbeddedResourceFileReader.ReadFileContent(Assembly.GetExecutingAssembly(), contentFileName);
             var result = systemUnderTest.ParseContent(content);
@@ -32,7 +32,7 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
         [Theory]
         [InlineAutoNSubstituteData("ExchangeRatesInValidContent.txt")]
         public void ParseContent_returns_nok(string contentFileName,                                            
-                                            ExchangeRatesContentParser systemUnderTest)
+                                            ExchangeRateContentParser systemUnderTest)
         {
             var content = EmbeddedResourceFileReader.ReadFileContent(Assembly.GetExecutingAssembly(), contentFileName);
             //Act

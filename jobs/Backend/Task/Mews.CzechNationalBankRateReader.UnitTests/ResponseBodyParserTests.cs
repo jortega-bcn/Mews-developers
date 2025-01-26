@@ -14,23 +14,29 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
         [Theory]
         [InlineAutoNSubstituteData()]        
         public void ParseBody_IsSuccess_WhenValidContent(
+            //Data
             string firstLine,
             string followingLines,
+            //Mock data
             List<CentralBankExchangeRate> exchangeRates,
             FirstRecord firstRecord,
+            //Mocks
             [Frozen]IFirstLineParser firstLineParser, 
-            [Frozen]IExchangeRatesContentParser contentParser,
+            [Frozen]IExchangeRateContentParser contentParser,
+            //Target of the test
             ResponseBodyParser systemUndeTest)
         {
             //Prepare
             contentParser.ParseContent(Arg.Any<string>()).Returns(exchangeRates);
             firstLineParser.ParseFirstLine(Arg.Any<string>()).Returns(firstRecord);
             
-            //Act
-            var parsedBody = systemUndeTest.ParseBody(string.Concat(firstLine,"\n",followingLines));
+            //Act 
+            var parsedBody = systemUndeTest.ParseBody(string.Concat(firstLine, ResponseBodyParser.EndOfLineChar, followingLines));
             
             //Assert
-            Assert.True(parsedBody != null);
+            Assert.False(parsedBody is null);
+            Assert.False(parsedBody.Metadata is null);
+            Assert.False(parsedBody.ExchangeRates is null);
             Assert.True(firstRecord.Date.Equals(parsedBody.Metadata.Date));
             Assert.Equal(firstRecord.YearlySequence,parsedBody.Metadata.YearlySequence);
             Assert.Equal(exchangeRates.Count, parsedBody.ExchangeRates.Count());
@@ -38,11 +44,11 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
 
         [Theory]
         [InlineAutoNSubstituteData()]
-        public void ParseBody_Throws_WhenInValidEndOfLines(string body,
+        public void ParseBody_Throws_WhenThereIsNoEndOfLine(string body,
                     ResponseBodyParser systemUndeTest)
         {
             //Check data pre-condition for this test case
-            Assert.True(body.IndexOf("\n") < 0); 
+            Assert.True(body.IndexOf(ResponseBodyParser.EndOfLineChar) < 0); 
 
             //Prepare
             var myTestAction = () => systemUndeTest.ParseBody(body);
@@ -64,7 +70,7 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
             //Prepare
             firstLineParser.ParseFirstLine(firstLine).Throws(new FormatException("mocked in unit test"));
             //Act
-            var myTestAction = () => systemUndeTest.ParseBody(string.Concat(firstLine, "\n", followingLines));
+            var myTestAction = () => systemUndeTest.ParseBody(string.Concat(firstLine, ResponseBodyParser.EndOfLineChar, followingLines));
             //Assert
             var exception = Assert.Throws<FormatException>(myTestAction);
         }
@@ -75,17 +81,16 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
             string followingLines,
             FirstRecord firstRecord,
             [Frozen] IFirstLineParser firstLineParser,
-            [Frozen] IExchangeRatesContentParser contentParser,
+            [Frozen] IExchangeRateContentParser contentParser,
             ResponseBodyParser systemUndeTest)
         {
             //Prepare
             contentParser.ParseContent(Arg.Any<string>()).Throws(new FormatException("mocked in unit test"));
             firstLineParser.ParseFirstLine(Arg.Any<string>()).Returns(firstRecord);
             //Act
-            var myTestAction = () => systemUndeTest.ParseBody(string.Concat(firstLine, "\n", followingLines));
+            var myTestAction = () => systemUndeTest.ParseBody(string.Concat(firstLine, ResponseBodyParser.EndOfLineChar, followingLines));
             //Assert
             var exception = Assert.Throws<FormatException>(myTestAction);
-
         }
 
 
