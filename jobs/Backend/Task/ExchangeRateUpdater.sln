@@ -1,9 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateUpdater", "ExchangeRateUpdater.csproj", "{7B2695D6-D24C-4460-A58E-A10F08550CE0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-EntryPoints", "01-EntryPoints", "{28AE7DF2-75FF-4701-8D7E-2DCEBACB4300}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Domain", "02-Domain", "{8A28BE11-C311-4822-8CC9-58103D85B90A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Infrastructure", "03-Infrastructure", "{B7E7D836-B8B5-4F5B-B699-EB3AC6B0079C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mews.ExchangeRateUpdater.App", "Mews.ExchangeRateUpdater.App\Mews.ExchangeRateUpdater.App.csproj", "{A4EF7F56-F273-45B5-80AD-87D95754F68C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mews.ExchangeRates.Domain", "Mews.ExchangeRates.Domain\Mews.ExchangeRates.Domain.csproj", "{C929BECF-D483-439C-AEA7-62EA492F090F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mews.CzechNationalBankRateReader", "Mews.CzechNationalBankRateReader\Mews.CzechNationalBankRateReader.csproj", "{80A71042-B220-4733-A5D9-0A98476DB9D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Tests", "04-Tests", "{65D03F19-3A88-4525-8BCC-67428B59EC10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mews.Reusable.UnitTests", "Mews.Reusable.UnitTests\Mews.Reusable.UnitTests.csproj", "{4ACA6F59-6F8F-40DC-9769-68513F1A0367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mews.ExchangeRates.Domain.UnitTests", "Mews.ExchangeRates.Domain.UnitTests\Mews.ExchangeRates.Domain.UnitTests.csproj", "{54E2C8ED-EC2F-4068-B1A5-C7C5680D1C6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-SolutionFiles", "00-SolutionFiles", "{9C903E0B-E319-46B4-BE3E-5EDD902D3B81}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mews.CNBRateReader.IntegrationTests", "Mews.CNBRateReader.IntegrationTests\Mews.CNBRateReader.IntegrationTests.csproj", "{F8CA7550-3D0B-4261-9065-3EFC834FDFE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mews.CzechNationalBankRateReader.UnitTests", "Mews.CzechNationalBankRateReader.UnitTests\Mews.CzechNationalBankRateReader.UnitTests.csproj", "{F80A9826-299B-443A-8B4D-A4F71092C102}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +36,45 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7B2695D6-D24C-4460-A58E-A10F08550CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B2695D6-D24C-4460-A58E-A10F08550CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B2695D6-D24C-4460-A58E-A10F08550CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B2695D6-D24C-4460-A58E-A10F08550CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4EF7F56-F273-45B5-80AD-87D95754F68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4EF7F56-F273-45B5-80AD-87D95754F68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4EF7F56-F273-45B5-80AD-87D95754F68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4EF7F56-F273-45B5-80AD-87D95754F68C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C929BECF-D483-439C-AEA7-62EA492F090F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C929BECF-D483-439C-AEA7-62EA492F090F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C929BECF-D483-439C-AEA7-62EA492F090F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C929BECF-D483-439C-AEA7-62EA492F090F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A71042-B220-4733-A5D9-0A98476DB9D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A71042-B220-4733-A5D9-0A98476DB9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A71042-B220-4733-A5D9-0A98476DB9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A71042-B220-4733-A5D9-0A98476DB9D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ACA6F59-6F8F-40DC-9769-68513F1A0367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ACA6F59-6F8F-40DC-9769-68513F1A0367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACA6F59-6F8F-40DC-9769-68513F1A0367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ACA6F59-6F8F-40DC-9769-68513F1A0367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E2C8ED-EC2F-4068-B1A5-C7C5680D1C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E2C8ED-EC2F-4068-B1A5-C7C5680D1C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E2C8ED-EC2F-4068-B1A5-C7C5680D1C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E2C8ED-EC2F-4068-B1A5-C7C5680D1C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8CA7550-3D0B-4261-9065-3EFC834FDFE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CA7550-3D0B-4261-9065-3EFC834FDFE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CA7550-3D0B-4261-9065-3EFC834FDFE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CA7550-3D0B-4261-9065-3EFC834FDFE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F80A9826-299B-443A-8B4D-A4F71092C102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F80A9826-299B-443A-8B4D-A4F71092C102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F80A9826-299B-443A-8B4D-A4F71092C102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F80A9826-299B-443A-8B4D-A4F71092C102}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4EF7F56-F273-45B5-80AD-87D95754F68C} = {28AE7DF2-75FF-4701-8D7E-2DCEBACB4300}
+		{C929BECF-D483-439C-AEA7-62EA492F090F} = {8A28BE11-C311-4822-8CC9-58103D85B90A}
+		{80A71042-B220-4733-A5D9-0A98476DB9D2} = {B7E7D836-B8B5-4F5B-B699-EB3AC6B0079C}
+		{4ACA6F59-6F8F-40DC-9769-68513F1A0367} = {65D03F19-3A88-4525-8BCC-67428B59EC10}
+		{54E2C8ED-EC2F-4068-B1A5-C7C5680D1C6E} = {65D03F19-3A88-4525-8BCC-67428B59EC10}
+		{F8CA7550-3D0B-4261-9065-3EFC834FDFE4} = {65D03F19-3A88-4525-8BCC-67428B59EC10}
+		{F80A9826-299B-443A-8B4D-A4F71092C102} = {65D03F19-3A88-4525-8BCC-67428B59EC10}
 	EndGlobalSection
 EndGlobal

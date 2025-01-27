@@ -1,0 +1,312 @@
+[
+  {
+    "SourceCurrency": {
+      "Code": "AUD"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 15.118,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "BRL"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 4.062,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "BGN"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 12.829,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "CAD"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 16.717,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "CNY"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 3.306,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "DKK"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 3.363,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "EUR"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 25.095,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "HKD"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 3.076,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "HUF"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.06137,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "ISK"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.17153,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "XDR"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 31.223,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "INR"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.27771,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "IDR"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.001481,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "ILS"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 6.675,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "JPY"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.15313,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "MYR"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 5.473,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "MXN"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 1.186,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "NZD"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 13.667,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "NOK"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 2.136,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "PHP"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.41033,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "PLN"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 5.956,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "RON"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 5.043,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "SGD"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 17.759,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "ZAR"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 1.304,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "KRW"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.01671,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "SEK"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 2.191,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "CHF"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 26.432,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "THB"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.71146,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "TRY"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 0.67126,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "GBP"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 29.730,
+    "Date": "2025-01-24"
+  },
+  {
+    "SourceCurrency": {
+      "Code": "USD"
+    },
+    "TargetCurrency": {
+      "Code": "CZK"
+    },
+    "Value": 23.958,
+    "Date": "2025-01-24"
+  }
+]
