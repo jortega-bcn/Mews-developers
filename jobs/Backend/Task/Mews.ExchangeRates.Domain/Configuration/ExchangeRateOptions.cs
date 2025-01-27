@@ -6,16 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mews.ExchangeRates.Domain.Configuration
-{
-    public class ExchangeRateOptions
-    {
-        [Required]
-        [NotNull]
-        public string[]? Currencies { get; set; }
+namespace Mews.ExchangeRates.Domain.Configuration;
 
-        [Required]
-        [NotNull]
-        public string? SourceUri { get; set; }
-    }
+public class ExchangeRateOptions
+{
+    [Required]
+    [NotNull]
+    public string[]? Currencies { get; set; }
+
+    [Required]
+    [NotNull]
+    public string? SourceUri { get; set; }
+
+    [Required]
+    [NotNull]
+    public string? DataFilePath { get; set; }
 }

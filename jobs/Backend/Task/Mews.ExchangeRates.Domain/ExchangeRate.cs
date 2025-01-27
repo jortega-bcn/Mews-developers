@@ -1,21 +1,27 @@
-﻿namespace Mews.ExchangeRates.Domain
+﻿namespace Mews.ExchangeRates.Domain;
+
+public class ExchangeRate(Currency sourceCurrency, Currency targetCurrency, decimal value, DateOnly date)
 {
-    public class ExchangeRate(Currency sourceCurrency, Currency targetCurrency, decimal value)
+    public Currency SourceCurrency { get; } = sourceCurrency;
+
+    public Currency TargetCurrency { get; } = targetCurrency;
+
+    public decimal Value { get; } = value;
+
+    public DateOnly Date { get; set; } = date;
+
+    public override string ToString()
     {
-        public Currency SourceCurrency { get; } = sourceCurrency;
+        return $"1 {SourceCurrency} = {Value} {TargetCurrency} on {Date:yyyy-MM-dd}.";
+    }
 
-        public Currency TargetCurrency { get; } = targetCurrency;
+    public override bool Equals(object? obj)
+    {
+        return ToString() == obj?.ToString();
+    }
 
-        public decimal Value { get; } = value;
-
-        public override string ToString()
-        {
-            return $"1 {SourceCurrency} = {Value} {TargetCurrency}";
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return ToString() == obj?.ToString();
-        }
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(ToString());
     }
 }

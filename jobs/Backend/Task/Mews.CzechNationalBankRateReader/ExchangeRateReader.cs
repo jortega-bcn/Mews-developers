@@ -18,10 +18,12 @@ namespace Mews.CzechNationalBankRateReader
         : IExchangeRateReader
     {
         public const string TargetCurrencyCode = "CZK";
+        private string _sourceUri = options.Value.SourceUri;
 
         public async Task<IEnumerable<ExchangeRate>> GetExchangeRatesAsync()
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, options.Value.SourceUri);
+            logger.LogInformation($"Reading Exchange Rates from {_sourceUri}");
+            var request = new HttpRequestMessage(HttpMethod.Get, _sourceUri);
             var response = await httpClient.SendAsync(request);
             if (!response.IsSuccessStatusCode)
             {
@@ -34,11 +36,16 @@ namespace Mews.CzechNationalBankRateReader
             {
                 throw new DataReadException($"No exchange rates could be parsed.");
             }
+            if (rates.Metadata is null)
+            {
+                throw new DataReadException($"No Metadata could be parsed.");
+            }
             var targetCurrency = new Currency(TargetCurrencyCode);
             return rates.ExchangeRates.Select(er => new ExchangeRate(
                                                             new Currency(er.Code),
                                                             targetCurrency,
-                                                            er.Rate / er.Amount));
+                                                            er.Rate / er.Amount,
+                                                            rates.Metadata.Date));
         }
     }
 }

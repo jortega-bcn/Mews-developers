@@ -19,7 +19,7 @@ builder.ConfigureServices(
                 .Bind(context.Configuration.GetSection(nameof(ExchangeRateOptions)))
                 .ValidateDataAnnotations();
             services.AddExchangeRatesDomain();
-            services.AddRateReader();
+            services.AddExchangeRateReader();
         });
 
 builder.UseSerilog((ctx, config) => config.ReadFrom.Configuration(ctx.Configuration));

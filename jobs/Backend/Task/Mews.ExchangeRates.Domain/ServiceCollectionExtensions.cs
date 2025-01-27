@@ -8,7 +8,7 @@ namespace Mews.ExchangeRates.Domain
         public static IServiceCollection AddExchangeRatesDomain( this IServiceCollection services)
         {
             services.AddSingleton<IExchangeRateProvider, ExchangeRateProvider>();
-
+            services.AddSingleton<IFaultTolerantExchangeRateReader, FaultTolerantExchangeRateReader>();
             return services;
         }
     }

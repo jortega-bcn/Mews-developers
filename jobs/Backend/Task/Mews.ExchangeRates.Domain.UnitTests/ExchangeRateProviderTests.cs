@@ -16,7 +16,7 @@ public class ExchangeRateProviderTests
     public async Task GetExchangeRatesAsync_Throws_WhenReadFails(
         string testReadExceptionMessage,
         List<Currency> currencies,
-        [Frozen] IExchangeRateReader exchangeRateReader,
+        [Frozen] IFaultTolerantExchangeRateReader exchangeRateReader,
         ExchangeRateProvider systemUnderTest
         )
     {
@@ -53,7 +53,7 @@ public class ExchangeRateProviderTests
     public async Task GetExchangeRatesAsync_ReturnsOneElement_WhenARequestedCurrencyFound(
         List<Currency> currencies,
         List<ExchangeRate> readExchangeRates,
-        [Frozen] IExchangeRateReader exchangeRateReader,
+        [Frozen] IFaultTolerantExchangeRateReader exchangeRateReader,
         ExchangeRateProvider systemUnderTest)
     {
         //Prepare
@@ -78,7 +78,7 @@ public class ExchangeRateProviderTests
     public async Task GetExchangeRatesAsync_ReturnsCorrectElements_WhenRequestedCurrenciesFound(
         List<ExchangeRate> nonMatchingReadExchangeRates,
         List<ExchangeRate> matchingReadExchangeRates,
-        [Frozen] IExchangeRateReader exchangeRateReader,
+        [Frozen] IFaultTolerantExchangeRateReader exchangeRateReader,
         ExchangeRateProvider systemUnderTest)
     {
         //Prepare        

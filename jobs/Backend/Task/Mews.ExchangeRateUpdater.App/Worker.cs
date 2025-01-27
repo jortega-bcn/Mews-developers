@@ -30,7 +30,7 @@ namespace Mews.ExchangeRateUpdater.App
             var currencyRates = await _provider.GetExchangeRatesAsync(currencies);
             foreach (var rate in currencyRates)
             {
-                //We may need to decouple domain from presentation if ToString is not good enough
+                //We may need to decouple domain from presentation if ExchangeRate.ToString is not good enough
                 Console.WriteLine(rate.ToString());
             }
         }

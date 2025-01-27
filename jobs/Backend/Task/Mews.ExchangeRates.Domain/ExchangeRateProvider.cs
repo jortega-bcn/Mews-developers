@@ -7,7 +7,7 @@ using System.Linq;
 namespace Mews.ExchangeRates.Domain
 {
     public class ExchangeRateProvider(
-        IExchangeRateReader exchangeRateReader, 
+        IFaultTolerantExchangeRateReader exchangeRateReader, 
         ILogger<ExchangeRateProvider> logger) : IExchangeRateProvider
     {
 

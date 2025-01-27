@@ -72,7 +72,6 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
             //Assert
             Assert.Contains(exceptionTestMessage, exception.Message);
         }
-
         [Theory]
         [InlineAutoNSubstituteData(HttpStatusCode.OK)]
         public async Task GetExchangeRates_Throws_When_NoExchangeRatesParsed(
@@ -87,6 +86,31 @@ namespace Mews.CzechNationalBankRateReader.UnitTests
             //Prepare
             options.Value.Returns(new ExchangeRateOptions { SourceUri = _validUri });
             parsedResponse.ExchangeRates = null;
+            responseBodyParser.ParseBody(responseBody).Returns(parsedResponse);
+            var client = new HttpClient(new CustomHttpClientHandler(responseCode, responseBody));
+            var systemUnderTest = new ExchangeRateReader(client, responseBodyParser, options, logger);
+
+            //Act
+            var GetExchangeRatesAction = async () => await systemUnderTest.GetExchangeRatesAsync();
+            var exception = await Assert.ThrowsAsync<DataReadException>(GetExchangeRatesAction);
+
+            //Assert
+            Assert.NotEmpty(exception.Message);
+        }
+        [Theory]
+        [InlineAutoNSubstituteData(HttpStatusCode.OK)]
+        public async Task GetExchangeRates_Throws_When_NoMetadataParsed(
+            HttpStatusCode responseCode,
+             string responseBody,
+             CentralBankResponse parsedResponse,
+             [Frozen] IResponseBodyParser responseBodyParser,
+             [Frozen] IOptions<ExchangeRateOptions> options,
+             [Frozen] ILogger<ExchangeRateReader> logger
+            )
+        {
+            //Prepare
+            options.Value.Returns(new ExchangeRateOptions { SourceUri = _validUri });
+            parsedResponse.Metadata = null;
             responseBodyParser.ParseBody(responseBody).Returns(parsedResponse);
             var client = new HttpClient(new CustomHttpClientHandler(responseCode, responseBody));
             var systemUnderTest = new ExchangeRateReader(client, responseBodyParser, options, logger);
