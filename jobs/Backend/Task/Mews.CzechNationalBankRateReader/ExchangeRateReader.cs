@@ -22,7 +22,7 @@ namespace Mews.CzechNationalBankRateReader
 
         public async Task<IEnumerable<ExchangeRate>> GetExchangeRatesAsync()
         {
-            logger.LogInformation($"Reading Exchange Rates from {_sourceUri}");
+            logger.LogInformation("Reading Exchange Rates from {sourceUri}",_sourceUri);
             var request = new HttpRequestMessage(HttpMethod.Get, _sourceUri);
             var response = await httpClient.SendAsync(request);
             if (!response.IsSuccessStatusCode)
